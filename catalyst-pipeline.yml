@@ -2,7 +2,7 @@ version: 1.0
 jobs:
   hello:
     steps:
-      - curl -X POST 'https://f19b-182-74-243-51.ngrok-free.app/baas/git/webhook/github?GWHKEY=$CATALYST_TOKEN'
+      - curl -X POST "https://f19b-182-74-243-51.ngrok-free.app/baas/git/webhook/github?GWHKEY=$CATALYST_TOKEN"
       - echo "Hello"
   world:
     steps:
