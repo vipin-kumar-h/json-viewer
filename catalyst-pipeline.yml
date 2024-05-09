@@ -1,18 +1,49 @@
-version: 1.0
+version: 2.1
+runners:
+  runner1:
+    config-id: 2
+  runner2:
+    config-id: 3
+images:
+  hub-image:
+    image: ollama/ollama
+    auth:
+      username: akshay28082001
+      password: Groot@9952
 jobs:
-  hello:
+  catalyst:
     steps:
-      - curl -X POST "https://f19b-182-74-243-51.ngrok-free.app/baas/git/webhook/github?GWHKEY=$CATALYST_TOKEN"
-      - echo "Hello"
-  world:
+    #   - curl -X POST "https://b190-182-74-243-51.ngrok-free.app/baas/git/webhook/github?GWHKEY=$CATALYST_TOKEN"
+    #   - curl -o abc.dat https://bit.ly/10GbOVHserver
+      - ls -a
+  zoho:
+    image: hub-image
     steps:
+      - ls
       - echo "World"
-  hello-world:
+  test:
+    artifacts:
+      upload:
+        - name: pom.xml
+          type: file
+          location: stratus://testgitbucket3-development/gitpath
+          file: /catalyst/pom.xml
     steps:
-      - echo "Hello World!"
+      - ls -a
+  test1:
+    artifacts:
+      download:
+        - name: document.pdf
+          type: file
+          location: stratus://testgitbucket3-development/gitpath
+          file: /catalyst/
+    steps:
+      - ls -a
 stages:
   - name: build
+    runner: runner2
     jobs:
-      - - hello
-        - world
-      - hello-world
+      - catalyst
+      - test
+      - test1
+pipeline-runner: runner1
