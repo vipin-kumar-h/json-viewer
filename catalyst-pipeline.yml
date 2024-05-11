@@ -1,12 +1,12 @@
 version: 1
 jobs:
   DownloadJob:
-    artifacts:
-      download:
-        - type: file
-          name: catalyst.json
-          location: stratus://vipintestbucket/test/catalyst.json
-          file: /catalyst/test
+    # artifacts:
+    #   download:
+    #     - type: file
+    #       name: catalyst.json
+    #       location: stratus://vipintestbucket/test/catalyst.json
+    #       file: /catalyst/test
     steps:
       - printenv
       - ls
