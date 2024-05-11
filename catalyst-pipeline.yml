@@ -1,0 +1,15 @@
+version: 1
+jobs:
+  UploadJob:
+    artifacts:
+      upload:
+        - type: file
+          name: catalyst.json
+          location: stratus://vipintestbucket/test/catalyst.json
+          file: /catalyst/test
+    steps:
+      - ls
+stages:
+  - name: mystage
+    jobs:
+      - UploadJob
