@@ -1,9 +1,5 @@
 version: 1
 jobs:
-  DownloadJob:
-    steps:
-      - printenv
-      - ls
   uploadJob:
     artifacts:
       upload:
@@ -13,7 +9,16 @@ jobs:
           file: /catalyst/tailwind.config.js
     steps:
       - ls
+  downloadJob:
+    artifacts:
+      download:
+        - type: file
+          name: catalyst.json
+          location: stratus://vipintestbucket/test
+          file: /catalyst/test
+    steps:
+      - ls
 stages:
   - name: test-job
     jobs:
-        - uploadJob
+      - downloadJob
