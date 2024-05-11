@@ -8,6 +8,7 @@ jobs:
           location: stratus://vipintestbucket/test/catalyst.json
           file: /catalyst/test
     steps:
+      - printenv
       - ls
 stages:
   - name: test-job
