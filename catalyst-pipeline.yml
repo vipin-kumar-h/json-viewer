@@ -1,4 +1,8 @@
 version: 1.0
+pipeline-when:
+  equal:
+    - << event.test.test2 >>
+    - Hello
 jobs:
   hello:
     steps:
