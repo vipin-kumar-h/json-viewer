@@ -1,4 +1,4 @@
-version: 1.0
+version: 1
 jobs:
   hello:
     steps:
@@ -15,3 +15,11 @@ stages:
       - - hello
         - world
       - hello-world
+pipeline-when:
+  and:
+    - equal:
+        - << status.build.hello >>
+        - success
+    - equal:
+        - << event.{{Event_Variable_Name_Placeholder}} >>
+        - dsfbdgv
