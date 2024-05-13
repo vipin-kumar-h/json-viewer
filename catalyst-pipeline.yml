@@ -1,24 +1,9 @@
 version: 1
 jobs:
-  uploadJob:
-    artifacts:
-      upload:
-        - type: file
-          name: tailwind.config.js
-          location: stratus://vipintestbucket/test
-          file: /catalyst/tailwind.config.js
-    steps:
-      - ls
-  downloadJob:
-    artifacts:
-      download:
-        - type: file
-          name: catalyst.json
-          location: stratus://vipintestbucket/test
-          file: /catalyst/test
+  Test:
     steps:
       - ls
 stages:
-  - name: test-job
+  - name: Test
     jobs:
-      - downloadJob
+      - Test
