@@ -12,7 +12,7 @@ function App() {
           &#123; JSON Beautifier &#125;
         </h1>
        </a>
-        <p className="text-xs md:text-sm">Pro Tip 💡 : Hey Don't Paste your code here.</p>
+        <p className="text-xs md:text-sm">Pro Tip 💡 : Hey never Paste your code here.</p>
       </header>
 
       {/* Main */}
